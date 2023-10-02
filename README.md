@@ -44,7 +44,7 @@ and run a container:
 docker run -p 8000:8000 fer-ms
 ```
 
-you may change the first `8000` to map the service to the desired port on your machine.
+You may change the first `8000` to map the service to the desired port on your machine.
 
 ### Python
 
