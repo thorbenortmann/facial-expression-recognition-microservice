@@ -1,6 +1,16 @@
+This license does not apply to the fer/hsemotion subdirectory of this repository,
+which is based on work of Andrey Savchenko
+(https://github.com/HSE-asavchenko/hsemotion-onnx/tree/bd8a9882924b38e859ae7801305ae203cd71acc1)
+and licensed under Apache License 2.0 accordingly
+(https://github.com/HSE-asavchenko/hsemotion-onnx/blob/bd8a9882924b38e859ae7801305ae203cd71acc1/LICENSE).
+
+
+All other contents are licensed under the following license:
+
+
 MIT License
 
-Copyright (c) 2023 affective-reality-group
+Copyright (c) 2023 Thorben Ortmann
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
