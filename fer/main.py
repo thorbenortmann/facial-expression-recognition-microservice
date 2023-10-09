@@ -6,6 +6,7 @@ import numpy as np
 import uvicorn
 from fastapi import FastAPI, Body, HTTPException
 from fastapi import File, UploadFile
+from fastapi.middleware.cors import CORSMiddleware
 
 from fer.hsemotion.face_detector import FaceDetector, NoFaceDetectedException
 from fer.hsemotion.hsemotion_recognizer import HSEmotionRecognizer
@@ -14,6 +15,15 @@ face_detector = FaceDetector()
 facial_expression_recognizer = HSEmotionRecognizer()
 app = FastAPI()
 
+origins = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get('/ping')
 def ping() -> str:
