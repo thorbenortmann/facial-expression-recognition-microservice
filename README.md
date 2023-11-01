@@ -30,6 +30,11 @@ curl -X 'POST' \
 
 ## Getting Started
 
+### Git LFS
+
+This repo uses Git LFS (Large File Storage) for large model files.
+You need to have Git LFS installed to successfully clone it.
+
 ### Docker
 
 If you have Docker installed just build the image:
