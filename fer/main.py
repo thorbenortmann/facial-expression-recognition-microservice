@@ -8,11 +8,11 @@ from fastapi import FastAPI, Body, HTTPException
 from fastapi import File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 
-from fer.hsemotion.face_detector import FaceDetector, NoFaceDetectedException
-from fer.hsemotion.hsemotion_recognizer import HSEmotionRecognizer
+from fer.posterv2.face_detector import FaceDetector, NoFaceDetectedException
+from fer.posterv2.posterv2_recognizer import PosterV2Recognizer
 
 face_detector = FaceDetector()
-facial_expression_recognizer = HSEmotionRecognizer()
+facial_expression_recognizer = PosterV2Recognizer()
 app = FastAPI()
 
 origins = ["*"]

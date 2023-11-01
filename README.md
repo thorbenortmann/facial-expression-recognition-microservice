@@ -41,7 +41,7 @@ docker build -t fer-ms .
 and run a container:
 
 ```
-docker run -p 8000:8000 fer-ms
+docker run --gpus all -p 8000:8000 fer-ms
 ```
 
 You may change the first `8000` to map the service to the desired port on your machine.

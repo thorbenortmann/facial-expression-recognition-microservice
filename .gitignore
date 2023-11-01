@@ -1,6 +1,7 @@
 venv/
 .idea/
-
+*.pth
+*.tar
 
 # Following are general python ignores from https://github.com/github/gitignore/blob/main/Python.gitignore
 
