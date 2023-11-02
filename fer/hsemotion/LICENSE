@@ -1,11 +1,13 @@
-The contents of this directory are based on work of Andrey Savchenko
-(https://github.com/HSE-asavchenko/hsemotion-onnx/tree/bd8a9882924b38e859ae7801305ae203cd71acc1).
-The original code is licensed under the Apache License 2.0
+The contents of this directory are based on work of Andrey Savchenko.
+Code: https://github.com/HSE-asavchenko/hsemotion-onnx/tree/bd8a9882924b38e859ae7801305ae203cd71acc1
+Model(s): https://github.com/HSE-asavchenko/face-emotion-recognition/tree/af833487321c3efdcb1768a91a6c656a1986fdf6/models/affectnet_emotions/onnx
+The original code and models are licensed under the Apache License 2.0
 (https://github.com/HSE-asavchenko/hsemotion-onnx/blob/bd8a9882924b38e859ae7801305ae203cd71acc1/LICENSE).
-You may find the complete license below.
+One may find the complete license below.
 
-I license my modifications under the Apache License 2.0 as well.
-You may find a copyright notice at the beginning of every Python file in this directory.
+Modifications to the code were made by Thorben Ortmann in 2023, and
+these modifications are also licensed under the Apache License, Version 2.0.
+One may find a copyright notice at the beginning of every Python file in this directory.
 
 
                                  Apache License
