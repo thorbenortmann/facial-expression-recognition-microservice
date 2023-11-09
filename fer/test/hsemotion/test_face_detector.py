@@ -14,7 +14,7 @@ class FaceDetectorTest(TestCase):
         face_detector = FaceDetector()
 
         # Act
-        detected_face = face_detector.detect_face(input_image)
+        detected_face, box = face_detector.detect_face(input_image)
 
         # Assert
         self.assertIsInstance(detected_face, np.ndarray)
@@ -22,3 +22,8 @@ class FaceDetectorTest(TestCase):
         self.assertTrue(0 < detected_face.shape[0] <= input_image.shape[0])
         self.assertTrue(0 < detected_face.shape[1] <= input_image.shape[1])
         self.assertEqual(detected_face.shape[2], 3)
+
+        self.assertIsInstance(box, tuple)
+        self.assertEqual(len(box), 4)
+        self.assertTrue(box[0] <= box[2])
+        self.assertTrue(box[1] <= box[3])

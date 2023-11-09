@@ -10,7 +10,7 @@ class HSEmotionRecognizerTest(TestCase):
     def test_predict_emotions(self):
         # Arrange
         rgb_image = load_file_to_cv2_rgb_array('test_image.png')
-        cropped_image = FaceDetector().detect_face(rgb_image)
+        cropped_image, _ = FaceDetector().detect_face(rgb_image)
         emotion_recognizer = HSEmotionRecognizer()
 
         # Act
