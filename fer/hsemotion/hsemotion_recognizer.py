@@ -15,6 +15,7 @@ class HSEmotionRecognizer:
     def __init__(self):
         self.model_name = 'enet_b2_7'
         self.img_size = 260
+        self.emotion_labels = ['anger', 'disgust', 'fear', 'happiness', 'neutral', 'sadness', 'surprise']
 
         path = f'{Path(__file__).parent / self.model_name}.onnx'
         self.ort_session = ort.InferenceSession(path, providers=['CPUExecutionProvider'])
