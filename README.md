@@ -30,10 +30,15 @@ curl -X 'POST' \
 
 ## Getting Started
 
-### Git LFS
-
-This repo uses Git LFS (Large File Storage) for large model files.
-You need to have Git LFS installed to successfully clone it.
+### Model Files
+You will need a dedicated GPU and have (CUDA) drivers installed for the models to work.   
+You need to download three model files from Google Drive:  
+- Download [ir50.pth](https://drive.google.com/file/d/17QAIPlpZUwkQzOTNiu-gUFLTqAxS-qHt/view?usp=sharing)
+and put it in the [pretrain](fer/posterv2/pretrain) directory.  
+- Download [mobilefacenet_model_best.pth.tar](https://drive.google.com/file/d/1SMYP5NDkmDE3eLlciN7Z4px-bvFEuHEX/view?usp=sharing)
+and put it in the [pretrain](fer/posterv2/pretrain) directory.  
+- Download [affectnet-7-model_best_state_dict_only.pth](https://drive.google.com/file/d/10NWqIcEAHjScAGlCKryEpWgiKJvyVlaF/view?usp=sharing)
+and put it in the [posterv2](fer/posterv2) directory.  
 
 ### Docker
 

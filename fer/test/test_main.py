@@ -27,7 +27,7 @@ class MainTest(TestCase):
         # Assert
         self.assertEquals(200, response.status_code)
         self.assertEquals(
-            ['anger', 'disgust', 'fear', 'happiness', 'neutral', 'sadness', 'surprise'],
+            ['anger', 'disgust', 'fear', 'happiness', 'sadness', 'surprise', 'neutral'],
             list(response.json().keys())
         )
 
@@ -42,6 +42,6 @@ class MainTest(TestCase):
         # Assert
         self.assertEquals(200, response.status_code)
         self.assertEquals(
-            ['anger', 'disgust', 'fear', 'happiness', 'neutral', 'sadness', 'surprise'],
+            ['anger', 'disgust', 'fear', 'happiness', 'sadness', 'surprise', 'neutral'],
             list(response.json().keys())
         )

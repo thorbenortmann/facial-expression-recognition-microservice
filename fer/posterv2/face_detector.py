@@ -3,6 +3,7 @@
 # Copyright for modifications 2023 Thorben Ortmann
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
+from typing import Tuple
 
 import numpy as np
 from mediapipe.python.solutions.face_mesh import FaceMesh
@@ -18,7 +19,7 @@ class FaceDetector:
         self.face_mesh = \
             FaceMesh(max_num_faces=1, refine_landmarks=True, min_detection_confidence=0.5, min_tracking_confidence=0.5)
 
-    def detect_face(self, image: np.ndarray) -> np.ndarray:
+    def detect_face(self, image: np.ndarray) -> Tuple[np.ndarray, Tuple[int, int, int, int]]:
         """
         Detects a face on the given image and crops it accordingly.
         :param image: numpy array of shape (height, width, channels)
@@ -49,4 +50,4 @@ class FaceDetector:
             y1 = 0
         x1, x2 = int(x1 * width), int(x2 * width)
         y1, y2 = int(y1 * height), int(y2 * height)
-        return image[y1:y2, x1:x2, :]
+        return image[y1:y2, x1:x2, :], (x1, y1, x2, y2)

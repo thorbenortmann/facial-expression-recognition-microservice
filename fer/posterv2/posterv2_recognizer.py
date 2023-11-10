@@ -19,6 +19,7 @@ torch.backends.cudnn.allow_tf32 = True
 
 class PosterV2Recognizer:
     def __init__(self):
+        self.emotion_labels = ['anger', 'disgust', 'fear', 'happiness', 'sadness', 'surprise', 'neutral']
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         self.print_system_report()
         self.model_path = Path(__file__).parent / 'affectnet-7-model_best_state_dict_only.pth'

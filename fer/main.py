@@ -25,6 +25,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 @app.get('/ping')
 def ping() -> str:
     return 'ping'
@@ -48,20 +49,12 @@ def recognize_emotions(image_bytes: bytes) -> Dict[str, float]:
     rgb_image = cv2.cvtColor(bgr_image, cv2.COLOR_BGR2RGB)
 
     try:
-        face_image = face_detector.detect_face(rgb_image)
+        face_image, _ = face_detector.detect_face(rgb_image)
     except NoFaceDetectedException:
         raise HTTPException(status_code=422, detail="No face detected")
 
     probabilities = facial_expression_recognizer.predict_emotions(face_image)
-    return {
-        'anger': round(probabilities[0], 4),
-        'disgust': round(probabilities[1], 4),
-        'fear': round(probabilities[2], 4),
-        'happiness': round(probabilities[3], 4),
-        'neutral': round(probabilities[4], 4),
-        'sadness': round(probabilities[5], 4),
-        'surprise': round(probabilities[6], 4),
-    }
+    return {k: round(v, 4) for k, v in zip(facial_expression_recognizer.emotion_labels, probabilities)}
 
 
 if __name__ == "__main__":

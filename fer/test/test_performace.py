@@ -17,7 +17,7 @@ def main():
     # Arrange
     file_name = 'test_image.png'
     image_bytes = (Path(__file__).parent / file_name).read_bytes()
-    num_requests = 100
+    num_requests = 1000
 
     # Act
     start_time = time.time()
