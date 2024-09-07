@@ -4,6 +4,8 @@ This repository contains a simple webservice
 offering an HTTP API to perform
 Facial Expression Recognition (FER).
 
+The employed FER model is specialized on facial images in which the upper half of the face is occluded. 
+
 POST a single image containing a human face
 and get a response with probabilities for seven basic emotions:
 
@@ -33,12 +35,30 @@ curl -X 'POST' \
 ### Model Files
 You will need a dedicated GPU and have (CUDA) drivers installed for the models to work.   
 You need to download three model files from Google Drive:  
-- Download [ir50.pth](https://drive.google.com/file/d/17QAIPlpZUwkQzOTNiu-gUFLTqAxS-qHt/view?usp=sharing)
+1. Download [ir50.pth](https://drive.google.com/file/d/17QAIPlpZUwkQzOTNiu-gUFLTqAxS-qHt/view?usp=sharing)
 and put it in the [pretrain](fer/posterv2/pretrain) directory.  
-- Download [mobilefacenet_model_best.pth.tar](https://drive.google.com/file/d/1SMYP5NDkmDE3eLlciN7Z4px-bvFEuHEX/view?usp=sharing)
+2. Download [mobilefacenet_model_best.pth.tar](https://drive.google.com/file/d/1SMYP5NDkmDE3eLlciN7Z4px-bvFEuHEX/view?usp=sharing)
 and put it in the [pretrain](fer/posterv2/pretrain) directory.  
-- Download [affectnet-7-model_best_state_dict_only.pth](https://drive.google.com/file/d/10NWqIcEAHjScAGlCKryEpWgiKJvyVlaF/view?usp=sharing)
+3. Download [affectnet-7-model_best_state_dict_only.pth](https://drive.google.com/file/d/10NWqIcEAHjScAGlCKryEpWgiKJvyVlaF/view?usp=sharing)
 and put it in the [posterv2](fer/posterv2) directory.  
+
+The first two model links reference the same models used in the
+[POSTER_V2 repository](https://github.com/Talented-Q/POSTER_V2?tab=readme-ov-file#preparation).
+The Poster_V2 or Poster++ architecture was developed by Mao et al. in:
+```
+@article{mao2023poster,
+  title={POSTER V2: A simpler and stronger facial expression recognition network},
+  author={Mao, Jiawei and Xu, Rui and Yin, Xuesong and Chang, Yuanqi and Nie, Binling and Huang, Aibin},
+  journal={arXiv preprint arXiv:2301.12149},
+  year={2023},
+  doi={10.48550/arXiv.2301.12149}
+}
+```
+Their code is published on GitHub under the MIT License:
+[POSTER_V2 repository](https://github.com/Talented-Q/POSTER_V2?tab=readme-ov-file#preparation).
+We trained the third model to download using their code (with small adjustments) and trained with images which we had
+occluded artificially.
+
 
 ### Docker
 
