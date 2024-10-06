@@ -16,7 +16,7 @@ WORKDIR /app
 
 
 COPY requirements.txt /app/
-RUN pip3 install --no-cache-dir -r requirements.txt -f https://download.pytorch.org/whl/torch_stable.html
+RUN pip3 install --no-cache-dir -r requirements.txt
 
 COPY ./fer /app/fer
 
