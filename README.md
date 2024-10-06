@@ -108,9 +108,9 @@ python -m pytest fer/test
 
 ## Example Usage
 
-You can find the API definition in [main.py](./fer/main.py).
+### API via curl
 
-### curl
+You can find the API definition in [main.py](./fer/main.py).
 
 To GET a ping:
 
@@ -139,6 +139,14 @@ curl -X 'POST' \
   -H 'accept: application/json' \
   -H 'Content-Type: text/plain' \
   -d '@fer/test/test_image_base64.txt'
+```
+
+### FER Live Demo
+
+With the virtual environment activated, execute:
+
+```bash
+python demo.py
 ```
 
 ### Tests in Python

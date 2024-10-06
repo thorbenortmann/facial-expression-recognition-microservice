@@ -1,4 +1,5 @@
-mediapipe==0.8.11
+hsemotion-onnx==0.3.1
+mediapipe==0.9.2.1
 
 matplotlib==3.6.0
 numpy==1.22.4
@@ -10,7 +11,6 @@ torchsampler==0.1.2
 torchvision==0.9.1+cu111
 
 opencv-python~=4.8.0.76
-Pillow~=10.0.0
 
 fastapi~= 0.103.1
 python-multipart~=0.0.6
