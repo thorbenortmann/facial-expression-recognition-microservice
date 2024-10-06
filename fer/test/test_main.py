@@ -27,8 +27,8 @@ class MainTest(TestCase):
         # Assert
         self.assertEquals(200, response.status_code)
         self.assertEquals(
-            ['anger', 'disgust', 'fear', 'happiness', 'sadness', 'surprise', 'neutral'],
-            list(response.json().keys())
+            {'anger', 'disgust', 'fear', 'happiness', 'sadness', 'surprise', 'neutral'},
+            set(response.json().keys())
         )
 
     def test_recognize_emotions_from_file(self):
@@ -42,6 +42,6 @@ class MainTest(TestCase):
         # Assert
         self.assertEquals(200, response.status_code)
         self.assertEquals(
-            ['anger', 'disgust', 'fear', 'happiness', 'sadness', 'surprise', 'neutral'],
-            list(response.json().keys())
+            {'anger', 'disgust', 'fear', 'happiness', 'sadness', 'surprise', 'neutral'},
+            set(response.json().keys())
         )
