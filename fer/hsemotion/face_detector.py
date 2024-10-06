@@ -17,7 +17,7 @@ class FaceDetector:
 
     def __init__(self):
         self.face_mesh = \
-            FaceMesh(max_num_faces=1, refine_landmarks=True, min_detection_confidence=0.5, min_tracking_confidence=0.5)
+            FaceMesh(max_num_faces=1, refine_landmarks=True, min_detection_confidence=0.2, min_tracking_confidence=0.2)
 
     def detect_face(self, image: np.ndarray) -> Tuple[np.ndarray, Tuple[int, int, int, int]]:
         """

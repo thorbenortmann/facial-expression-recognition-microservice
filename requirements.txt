@@ -1,5 +1,5 @@
 hsemotion-onnx==0.3.1
-mediapipe==0.8.11
+mediapipe==0.9.2.1
 
 numpy~=1.25.2
 onnxruntime~=1.15.1
