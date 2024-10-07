@@ -1,3 +1,10 @@
+# Copyright 2023 Talented-Q
+# https://github.com/Talented-Q/POSTER_V2/blob/18de5591c3fa0b7b22bb9fe2d61e7f813e6e3b08/models/ir50.py
+# Licensed under the MIT License: https://github.com/Talented-Q/POSTER_V2/blob/18de5591c3fa0b7b22bb9fe2d61e7f813e6e3b08/LICENSE
+#
+# Copyright for modifications 2023 Thorben Ortmann
+# Licensed under the MIT License.
+
 from pathlib import Path
 
 import torch

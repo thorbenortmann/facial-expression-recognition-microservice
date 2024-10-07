@@ -2,6 +2,7 @@ import os
 import platform
 from collections import OrderedDict
 from pathlib import Path
+from typing import Optional, List
 
 import numpy as np
 import torch
@@ -18,12 +19,15 @@ torch.backends.cudnn.allow_tf32 = True
 
 
 class PosterV2Recognizer:
-    def __init__(self, model_name: str = 'affectnet-7-model_best_state_dict_only.pth'):
-        self.emotion_labels = ['neutral', 'happiness', 'sadness', 'surprise', 'fear', 'disgust', 'anger']
+    def __init__(self,
+                 model_name: str = 'affectnet-7-model_best_state_dict_only.pth',
+                 emotion_labels: Optional[List[str]] = None):
+        self.model_path = Path(__file__).parent / model_name
+        default_emotion_labels = ['neutral', 'happiness', 'sadness', 'surprise', 'fear', 'disgust', 'anger']
+        self.emotion_labels = emotion_labels if emotion_labels is not None else default_emotion_labels
 
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         self.print_system_report()
-        self.model_path = Path(__file__).parent / model_name
         self.transform = transforms.Compose([
             transforms.Resize((224, 224)),
             transforms.ToTensor(),
@@ -61,8 +65,7 @@ class PosterV2Recognizer:
     def predict_emotions(self, face_img: np.ndarray) -> list[float]:
         """
         :param face_img: numpy array of shape (height, width, channels)
-        :return: probability scores in the following order:
-            0: 'Anger', 1: 'Disgust', 2: 'Fear', 3: 'Happiness', 4: 'Neutral', 5: 'Sadness', 6: 'Surprise'
+        :return: probability scores in the order given in self.emotion_labels.
         """
         with torch.no_grad():
             output = self.model(self.preprocess(face_img))

@@ -4,8 +4,6 @@ This repository contains a simple webservice
 offering an HTTP API to perform
 Facial Expression Recognition (FER).
 
-The employed FER model is specialized on facial images in which the upper half of the face is occluded. 
-
 POST a single image containing a human face
 and get a response with probabilities for seven basic emotions:
 
@@ -33,8 +31,10 @@ curl -X 'POST' \
 ## Getting Started
 
 ### Model Files
+
 You will need a dedicated GPU and have (CUDA) drivers installed for the models to work.   
-You need to download three model files from Google Drive:  
+You need to download three model files from Google Drive:
+
 1. Download [ir50.pth](https://drive.google.com/file/d/17QAIPlpZUwkQzOTNiu-gUFLTqAxS-qHt/view?usp=sharing)
 and put it in the [pretrain](fer/posterv2/pretrain) directory.  
 2. Download [mobilefacenet_model_best.pth.tar](https://drive.google.com/file/d/1SMYP5NDkmDE3eLlciN7Z4px-bvFEuHEX/view?usp=sharing)
@@ -42,9 +42,14 @@ and put it in the [pretrain](fer/posterv2/pretrain) directory.
 3. Download [affectnet-7-model_best_state_dict_only.pth](https://drive.google.com/file/d/10NWqIcEAHjScAGlCKryEpWgiKJvyVlaF/view?usp=sharing)
 and put it in the [posterv2](fer/posterv2) directory.  
 
-The first two model links reference the same models used in the
-[POSTER_V2 repository](https://github.com/Talented-Q/POSTER_V2?tab=readme-ov-file#preparation).
-The Poster_V2 or Poster++ architecture was developed by Mao et al. in:
+#### Attribution
+
+The models used in this branch of the repository originate from [Talented-Q](https://github.com/Talented-Q)'s
+[POSTER_V2 repository](https://github.com/Talented-Q/POSTER_V2/tree/18de5591c3fa0b7b22bb9fe2d61e7f813e6e3b08).
+Their code is published on GitHub under the
+[MIT License](https://github.com/Talented-Q/POSTER_V2/blob/18de5591c3fa0b7b22bb9fe2d61e7f813e6e3b08/LICENSE).
+The [corresponding publication](https://doi.org/10.48550/arXiv.2301.12149) is:
+
 ```
 @article{mao2023poster,
   title={POSTER V2: A simpler and stronger facial expression recognition network},
@@ -54,11 +59,6 @@ The Poster_V2 or Poster++ architecture was developed by Mao et al. in:
   doi={10.48550/arXiv.2301.12149}
 }
 ```
-Their code is published on GitHub under the MIT License:
-[POSTER_V2 repository](https://github.com/Talented-Q/POSTER_V2?tab=readme-ov-file#preparation).
-We trained the third model to download using their code (with small adjustments) and trained with images which we had
-occluded artificially.
-
 
 ### Docker
 
@@ -75,6 +75,18 @@ docker run --gpus all -p 8000:8000 fer-ms
 ```
 
 You may change the first `8000` to map the service to the desired port on your machine.
+
+**Note:** You will need the
+[Nvidia Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/index.html)
+to run containers with GPU support.
+We tested this on a host machine with:
+- Ubuntu: `22.04`
+- Nvidia Driver Version: `535.183.01`
+- CUDA Version: `12.2`
+- cuDNN Version: `8.9.5`
+- Docker Version: `27.3.1`
+- Nvidia Container Toolkit-Version: `1.16.2`
+- GPU: `Nvidia GeForce RTX 3090`
 
 ### Python
 

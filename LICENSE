@@ -1,8 +1,22 @@
-This license does not apply to the fer/hsemotion subdirectory of this repository,
+This license does not apply to the fer/posterv2/face_detector.py file this repository,
 which is based on work of Andrey Savchenko
 (https://github.com/HSE-asavchenko/hsemotion-onnx/tree/bd8a9882924b38e859ae7801305ae203cd71acc1)
 and licensed under Apache License 2.0 accordingly
 (https://github.com/HSE-asavchenko/hsemotion-onnx/blob/bd8a9882924b38e859ae7801305ae203cd71acc1/LICENSE).
+
+
+The files ir50.py, mobilefacenet.py and vit.py files in the fer/posterv2 directory are unmodified copies of equally
+named files in Talented-Q's POSTER_V2 repository:
+https://github.com/Talented-Q/POSTER_V2/tree/18de5591c3fa0b7b22bb9fe2d61e7f813e6e3b08.
+The PosterV2_7cls.py file also originates from there, but it was modified slightly.
+The three models mentioned in the README.md of this repository,
+1. ir50.pth (https://drive.google.com/file/d/17QAIPlpZUwkQzOTNiu-gUFLTqAxS-qHt/view?usp=sharing)
+2. mobilefacenet_model_best.pth.tar (https://drive.google.com/file/d/1SMYP5NDkmDE3eLlciN7Z4px-bvFEuHEX/view?usp=sharing)
+3. affectnet-7-model_best_state_dict_only.pth (https://drive.google.com/file/d/10NWqIcEAHjScAGlCKryEpWgiKJvyVlaF/view?usp=sharing)
+are copies of the ones mentioned in Talented-Q's repository:
+https://github.com/Talented-Q/POSTER_V2/blob/18de5591c3fa0b7b22bb9fe2d61e7f813e6e3b08/README.md.
+Talented-Q's repository is licensed under the MIT license:
+https://github.com/Talented-Q/POSTER_V2/blob/18de5591c3fa0b7b22bb9fe2d61e7f813e6e3b08/LICENSE.
 
 
 All other contents are licensed under the following license:
