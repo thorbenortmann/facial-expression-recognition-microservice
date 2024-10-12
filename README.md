@@ -28,6 +28,21 @@ curl -X 'POST' \
 }
 ```
 
+## Facial Expression Recognition under Partial Occlusion
+This branch of the repository contains the setup we used in the study described in our paper
+[EmojiHeroVR: A Study on Facial Expression Recognition under Partial Occlusion from Head-Mounted Displays](https://doi.org/10.48550/arXiv.2410.03331).
+The models used, 
+[11-07-11-59-model_best_state_dict_only.pth](https://drive.google.com/file/d/1Niww_GBbVBq2nx9ZCuHOe75FT2grgZaX/view?usp=drive_link) 
+and [11-10-09-22-model_best_state_dict_only.pth](https://drive.google.com/file/d/1Uuf3jUVeRdM24WKavIUyWg6ztlYUyjwV/view?usp=drive_link),
+were trained on artificially occluded images from the
+[AffectNet](https://doi.org/10.1109/TAFFC.2017.2740923),
+[EmotioNet](https://www.cv-foundation.org/openaccess/content_cvpr_2016/html/Benitez-Quiroz_EmotioNet_An_Accurate_CVPR_2016_paper.html),
+[ExpW](https://doi.org/10.1007/s11263-017-1055-1),
+[FER+](https://doi.org/10.1145/2993148.2993165),
+[SFEW](https://doi.org/10.1109/ICCVW.2011.6130508) and
+[KDEF](https://doi.org/10.1080/02699930701626582)
+datasets. 
+
 ## Getting Started
 
 ### Model Files
@@ -39,12 +54,17 @@ You need to download three model files from Google Drive:
 and put it in the [pretrain](fer/posterv2/pretrain) directory.  
 2. Download [mobilefacenet_model_best.pth.tar](https://drive.google.com/file/d/1SMYP5NDkmDE3eLlciN7Z4px-bvFEuHEX/view?usp=sharing)
 and put it in the [pretrain](fer/posterv2/pretrain) directory.  
-3. Download [affectnet-7-model_best_state_dict_only.pth](https://drive.google.com/file/d/10NWqIcEAHjScAGlCKryEpWgiKJvyVlaF/view?usp=sharing)
-and put it in the [posterv2](fer/posterv2) directory.  
+3. Download [11-07-11-59-model_best_state_dict_only.pth](https://drive.google.com/file/d/1Niww_GBbVBq2nx9ZCuHOe75FT2grgZaX/view?usp=drive_link) 
+and put it in the [posterv2](fer/posterv2) directory.
+4. Download [11-10-09-22-model_best_state_dict_only.pth](https://drive.google.com/file/d/1Uuf3jUVeRdM24WKavIUyWg6ztlYUyjwV/view?usp=drive_link) 
+and put it in the [posterv2](fer/posterv2) directory.
 
 #### Attribution
 
-The models used in this branch of the repository originate from [Talented-Q](https://github.com/Talented-Q)'s
+The models,
+[ir50.pth](https://drive.google.com/file/d/17QAIPlpZUwkQzOTNiu-gUFLTqAxS-qHt/view?usp=sharing) and
+[mobilefacenet_model_best.pth.tar](https://drive.google.com/file/d/1SMYP5NDkmDE3eLlciN7Z4px-bvFEuHEX/view?usp=sharing),
+used in this branch of the repository originate from [Talented-Q](https://github.com/Talented-Q)'s
 [POSTER_V2 repository](https://github.com/Talented-Q/POSTER_V2/tree/18de5591c3fa0b7b22bb9fe2d61e7f813e6e3b08).
 Their code is published on GitHub under the
 [MIT License](https://github.com/Talented-Q/POSTER_V2/blob/18de5591c3fa0b7b22bb9fe2d61e7f813e6e3b08/LICENSE).
@@ -59,6 +79,11 @@ The [corresponding publication](https://doi.org/10.48550/arXiv.2301.12149) is:
   doi={10.48550/arXiv.2301.12149}
 }
 ```
+The models,
+[11-07-11-59-model_best_state_dict_only.pth](https://drive.google.com/file/d/1Niww_GBbVBq2nx9ZCuHOe75FT2grgZaX/view?usp=drive_link) and
+[11-10-09-22-model_best_state_dict_only.pth](https://drive.google.com/file/d/1Uuf3jUVeRdM24WKavIUyWg6ztlYUyjwV/view?usp=drive_link),
+were trained by us using the training code of [Talented-Q](https://github.com/Talented-Q)'s
+[POSTER_V2 repository](https://github.com/Talented-Q/POSTER_V2/tree/18de5591c3fa0b7b22bb9fe2d61e7f813e6e3b08).
 
 ### Docker
 
