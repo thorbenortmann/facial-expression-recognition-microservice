@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - posterv2
+      - study-setup
   pull_request:
     branches:
       - main
@@ -35,7 +36,13 @@ jobs:
           gdown https://drive.google.com/uc?id=1oMGcEyhqQLjaca4pppEYV8xONmXU6ucv -O fer/posterv2/pretrain/mobilefacenet_model_best.pth.tar
       - name: Download affectnet-7-model_best_state_dict_only.pth from Google Drive
         run: |
-          gdown https://drive.google.com/uc?id=10NWqIcEAHjScAGlCKryEpWgiKJvyVlaF -O fer/posterv2/affectnet-7-model_best_state_dict_only.pth      
+          gdown https://drive.google.com/uc?id=10NWqIcEAHjScAGlCKryEpWgiKJvyVlaF -O fer/posterv2/affectnet-7-model_best_state_dict_only.pth
+      - name: Download 11-07-11-59-model_best_state_dict_only.pth from Google Drive
+        run: |
+          gdown https://drive.google.com/uc?id=1Niww_GBbVBq2nx9ZCuHOe75FT2grgZaX -O /app/fer/posterv2/11-07-11-59-model_best_state_dict_only.pth
+      - name: Download 11-10-09-22-model_best_state_dict_only.pth from Google Drive
+        run: |
+          gdown https://drive.google.com/uc?id=1Uuf3jUVeRdM24WKavIUyWg6ztlYUyjwV -O /app/fer/posterv2/11-10-09-22-model_best_state_dict_only.pth
 
       - name: Run Tests
         run: pytest

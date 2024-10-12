@@ -1,4 +1,5 @@
 import base64
+import random
 from typing import Dict
 
 import cv2
@@ -12,11 +13,14 @@ from fer.posterv2.face_detector import FaceDetector, NoFaceDetectedException
 from fer.posterv2.posterv2_recognizer import PosterV2Recognizer
 
 face_detector = FaceDetector()
-facial_expression_recognizer = PosterV2Recognizer()
+
+emotion_labels = ['anger', 'disgust', 'fear', 'happiness', 'sadness', 'surprise', 'neutral']
+facial_expression_recognizer1 = PosterV2Recognizer('11-07-11-59-model_best_state_dict_only.pth', emotion_labels)
+facial_expression_recognizer2 = PosterV2Recognizer('11-10-09-22-model_best_state_dict_only.pth', emotion_labels)
+facial_expression_recognizers = [facial_expression_recognizer1, facial_expression_recognizer2]
+
 app = FastAPI()
-
 origins = ["*"]
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
@@ -53,6 +57,7 @@ def recognize_emotions(image_bytes: bytes) -> Dict[str, float]:
     except NoFaceDetectedException:
         raise HTTPException(status_code=422, detail="No face detected")
 
+    facial_expression_recognizer = random.choice(facial_expression_recognizers)
     probabilities = facial_expression_recognizer.predict_emotions(face_image)
     return {k: round(v, 4) for k, v in zip(facial_expression_recognizer.emotion_labels, probabilities)}
 
